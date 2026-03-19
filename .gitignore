@@ -1,1 +1,13 @@
-Nothing should be ignored in this case, as the changes consist only of source files (.md, .css, .js, .html) without any build artifacts, dependencies, or temporary files.
+# Examples
+# Input:
+# ### Added files:
+# ['src/main.py', 'README.md', 'config.json']
+# 
+# ### Deleted files:
+# ['old/unused.py']
+# ### Modified files:
+# ['utils.py']
+# ###current .gitignore Content
+# (empty)
+# Expected Output:
+# (empty — output nothing)
