@@ -19,30 +19,7 @@
     --transition: all 0.3s ease;
 }
 
-/* Chef illustration as decorative element - using logo.jpg with chef */
-.chef-decoration {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 280px;
-    height: auto;
-    opacity: 0.12;
-    z-index: -1;
-    pointer-events: none;
-}
 
-@media (max-width: 768px) {
-    .chef-decoration {
-        width: 140px;
-        opacity: 0.08;
-    }
-}
-
-@media (max-width: 480px) {
-    .chef-decoration {
-        display: none;
-    }
-}
 
 * {
     margin: 0;
@@ -100,11 +77,13 @@ img {
 }
 
 .logo img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--white);
+    width: 140px;
+    height: 60px;
+    border-radius: 30px;
+    object-fit: contain;
+    border: 2px solid var(--white);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px;
 }
 
 .logo h1 {
