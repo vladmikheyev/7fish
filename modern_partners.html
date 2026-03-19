@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Партнерам | ООО "МИХЕЕВ" | Рыбная продукция оптом</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="modern.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/logo.jpg" alt="Логотип ООО МИХЕЕВ">
+                <div>
+                    <h1>ООО "МИХЕЕВ"</h1>
+                    <p>Рыбная продукция оптом</p>
+                </div>
+            </div>
+            <div class="header-contact">
+                <p>Телефон: <a href="tel:+74951542257">(495) 154-22-57</a></p>
+                <p>Email: <a href="mailto:miheev@miheev.ru">miheev@miheev.ru</a></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="modern_index.html" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a href="modern_about.html" class="nav-link">О компании</a>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Продукция ▾</a>
+                    <ul class="dropdown">
+                        <li><a href="#" class="dropdown-item">Рыба горячего копчения</a></li>
+                        <li><a href="#" class="dropdown-item">Рыба холодного копчения</a></li>
+                        <li><a href="#" class="dropdown-item">Слабосоленая рыба</a></li>
+                        <li><a href="#" class="dropdown-item">Пиво к рыбе</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Прайс-лист ▾</a>
+                    <ul class="dropdown">
+                        <li><a href="#" class="dropdown-item">Горячее копчение</a></li>
+                        <li><a href="#" class="dropdown-item">Холодное копчение</a></li>
+                        <li><a href="#" class="dropdown-item">Слабосоленая</a></li>
+                        <li><a href="#" class="dropdown-item">Пивной набор</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Документы</a>
+                </li>
+                <li class="nav-item">
+                    <a href="modern_partners.html" class="nav-link active">Партнерам</a>
+                </li>
+                <li class="nav-item">
+                    <a href="modern_contacts.html" class="nav-link">Контакты</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-title">Меню</div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="modern_about.html" class="sidebar-link">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                        О компании
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="toggleSubmenu(this)">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                        Продукция
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li class="sidebar-subitem"><a href="#" class="sidebar-sublink">Горячее копчение</a></li>
+                        <li class="sidebar-subitem"><a href="#" class="sidebar-sublink">Холодное копчение</a></li>
+                        <li class="sidebar-subitem"><a href="#" class="sidebar-sublink">Слабосоленая</a></li>
+                        <li class="sidebar-subitem"><a href="#" class="sidebar-sublink">Пиво к рыбе</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="toggleSubmenu(this)">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        Прайс-лист
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li class="sidebar-subitem"><a href="#" class="sidebar-sublink">Горячее копчение</a></li>
+                        <li class="sidebar-subitem"><a href="#" class="sidebar-sublink">Холодное копчение</a></li>
+                        <li class="sidebar-subitem"><a href="#" class="sidebar-sublink">Слабосоленая</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        Документы
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="modern_partners.html" class="sidebar-link active">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24">
+                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        </svg>
+                        Партнерам
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="modern_contacts.html" class="sidebar-link">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        Контакты
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content fade-in">
+            <h1 class="page-title">Партнерам</h1>
+
+            <div class="section">
+                <p style="font-size: 18px; line-height: 1.8; margin-bottom: 30px;">
+                    Компания ООО "МИХЕЕВ" приглашает к сотрудничеству оптовых покупателей, дистрибьюторов 
+                    и торговых сети. Мы предлагаем выгодные условия партнёрства и гарантируем высокое качество продукции.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Преимущества работы с нами</h2>
+                <ul style="line-height: 2; margin-left: 20px;">
+                    <li>Более 25 лет на рынке рыбной продукции</li>
+                    <li>Собственное производство полного цикла</li>
+                    <li>Контроль качества на всех этапах производства</li>
+                    <li>Гибкая система скидок для постоянных партнёров</li>
+                    <li>Оперативная доставка по всей России</li>
+                    <li>Индивидуальный подход к каждому клиенту</li>
+                    <li>Сертифицированная продукция (ГОСТ, HACCP)</li>
+                    <li>Стабильность поставок и надёжность партнёрства</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Условия сотрудничества</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="background: var(--light-gray); padding: 25px; border-radius: 8px;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">Для оптовых покупателей</h3>
+                        <ul style="line-height: 1.8;">
+                            <li>Минимальный заказ от 50 000 руб.</li>
+                            <li>Скидки от объёма заказа</li>
+                            <li>Отсрочка платежа для постоянных клиентов</li>
+                            <li>Бесплатная доставка при заказе от 100 000 руб.</li>
+                        </ul>
+                    </div>
+                    <div style="background: var(--light-gray); padding: 25px; border-radius: 8px;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">Для дистрибьюторов</h3>
+                        <ul style="line-height: 1.8;">
+                            <li>Эксклюзивные права на регион</li>
+                            <li>Маркетинговая поддержка</li>
+                            <li>Обучение персонала</li>
+                            <li>Приоритетное обслуживание</li>
+                        </ul>
+                    </div>
+                    <div style="background: var(--light-gray); padding: 25px; border-radius: 8px;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">Для торговых сетей</h3>
+                        <ul style="line-height: 1.8;">
+                            <li>Индивидуальные условия поставки</li>
+                            <li>Регулярное пополнение ассортимента</li>
+                            <li>Совместные промо-акции</li>
+                            <li>Гарантия свежести продукции</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Необходимые документы</h2>
+                <p style="margin-bottom: 20px;">Для начала сотрудничества необходимо предоставить:</p>
+                <ul style="line-height: 2; margin-left: 20px;">
+                    <li>Копии учредительных документов (Устав, ИНН, ОГРН)</li>
+                    <li>Карточку предприятия с реквизитами</li>
+                    <li>Доверенность на подписанта договора</li>
+                    <li>Заявку на заключение договора поставки</li>
+                </ul>
+                <div style="margin-top: 20px;">
+                    <a href="img/dogovor.zip" class="hero-btn" style="font-size: 14px; padding: 12px 30px;">
+                        📥 Скачать образец договора (ZIP)
+                    </a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Как стать партнёром</h2>
+                <ol style="line-height: 2; margin-left: 20px;">
+                    <li>Заполните форму обратной связи или позвоните нам</li>
+                    <li>Наш менеджер свяжется с вами для обсуждения деталей</li>
+                    <li>Предоставьте необходимые документы</li>
+                    <li>Подпишите договор поставки</li>
+                    <li>Разместите первый заказ</li>
+                    <li>Получите продукцию и начните сотрудничество</li>
+                </ol>
+            </div>
+
+            <div class="section" style="background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%); color: white; padding: 30px; border-radius: 8px; margin-top: 30px;">
+                <h3 style="margin-bottom: 15px; font-size: 22px;">📞 Свяжитесь с отделом продаж</h3>
+                <p style="margin-bottom: 20px; opacity: 0.95;">
+                    Наши специалисты готовы ответить на все вопросы и помочь вам стать нашим партнёром.
+                </p>
+                <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+                    <div>
+                        <strong>Телефон:</strong><br>
+                        <a href="tel:+74951542257" style="color: white; font-size: 18px;">(495) 154-22-57</a>
+                    </div>
+                    <div>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:miheev@miheev.ru" style="color: white; font-size: 18px;">miheev@miheev.ru</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>ООО "МИХЕЕВ"</h3>
+                <p>&copy; 2004-2025 Все права защищены</p>
+                <p>Производство и оптовая продажа рыбной продукции</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p><strong>Адрес:</strong> Москва, 125438, ул. example, д. 1</p>
+                <p><strong>Телефон:</strong> (495) 154-22-57, 783-5777</p>
+                <p><strong>Email:</strong> <a href="mailto:miheev@miheev.ru">miheev@miheev.ru</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <p><a href="modern_about.html">О компании</a></p>
+                <p><a href="#">Продукция</a></p>
+                <p><a href="#">Прайс-лист</a></p>
+                <p><a href="#">Документы</a></p>
+                <p><a href="modern_contacts.html">Контакты</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Современная версия сайта ООО "МИХЕЕВ" | <a href="#">Карта сайта</a></p>
+        </div>
+    </footer>
+
+    <script src="modern.js"></script>
+</body>
+</html>
