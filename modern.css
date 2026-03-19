@@ -19,22 +19,28 @@
     --transition: all 0.3s ease;
 }
 
-/* Chef illustration as decorative element */
+/* Chef illustration as decorative element - using logo.jpg with chef */
 .chef-decoration {
     position: fixed;
     bottom: 0;
     right: 0;
-    width: 300px;
+    width: 280px;
     height: auto;
-    opacity: 0.15;
+    opacity: 0.12;
     z-index: -1;
     pointer-events: none;
 }
 
 @media (max-width: 768px) {
     .chef-decoration {
-        width: 150px;
-        opacity: 0.1;
+        width: 140px;
+        opacity: 0.08;
+    }
+}
+
+@media (max-width: 480px) {
+    .chef-decoration {
+        display: none;
     }
 }
 
