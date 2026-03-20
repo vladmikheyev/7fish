@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рыба горячего копчения | ООО "МИХЕЕВ"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #A33D49;
+            --primary-dark: #8B343E;
+            --primary-light: #D24F5E;
+            --secondary-color: #007FA0;
+            --secondary-dark: #006680;
+            --accent-color: #41B3D1;
+            --text-color: #494949;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --border-radius: 8px;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-gray);
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-dark);
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--white);
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .header-contact {
+            text-align: right;
+        }
+
+        .header-contact a {
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .nav {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 15px 25px;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            background-color: rgba(163, 61, 73, 0.05);
+            border-bottom-color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(163, 61, 73, 0.05);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--white);
+            transition: var(--transition);
+        }
+
+        /* Hero Section - Category Specific */
+        .category-hero {
+            background: linear-gradient(rgba(163, 61, 73, 0.85), rgba(139, 52, 62, 0.85)),
+                        url('img/bgmain.jpg') center/cover;
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .category-hero h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .category-hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .breadcrumb {
+            margin-top: 15px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            height: fit-content;
+        }
+
+        .sidebar-title {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .sidebar-link:hover {
+            background-color: rgba(163, 61, 73, 0.05);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .sidebar-icon {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary-color);
+        }
+
+        .sidebar-submenu {
+            list-style: none;
+            background-color: rgba(0, 0, 0, 0.02);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .sidebar-item.active .sidebar-submenu {
+            max-height: 500px;
+        }
+
+        .sidebar-subitem {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .sidebar-sublink {
+            display: block;
+            padding: 12px 20px 12px 52px;
+            color: var(--text-color);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .sidebar-sublink:hover {
+            background-color: rgba(163, 61, 73, 0.05);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .sidebar-sublink.current {
+            background-color: rgba(163, 61, 73, 0.1);
+            color: var(--primary-color);
+            font-weight: 600;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        /* Content Area */
+        .content {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 40px;
+        }
+
+        .content-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .content-title {
+            color: var(--secondary-color);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .products-count {
+            color: var(--text-color);
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background-color: #ECECEC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .product-title a {
+            color: var(--secondary-color);
+        }
+
+        .product-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .product-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            font-weight: 500;
+            border-radius: 25px;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .product-btn:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(163, 61, 73, 0.4);
+            text-decoration: none;
+        }
+
+        /* Product Info Box */
+        .product-info-box {
+            background-color: rgba(0, 127, 160, 0.05);
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .product-info-box h3 {
+            color: var(--secondary-color);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-info-box p {
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
+            color: var(--white);
+            padding: 50px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 2;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                order: 2;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                padding: 12px 15px;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border-left: 3px solid var(--primary-color);
+                border-radius: 0;
+            }
+
+            .category-hero h1 {
+                font-size: 28px;
+            }
+
+            .category-hero p {
+                font-size: 16px;
+            }
+
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-contact {
+                text-align: center;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .content-title {
+                font-size: 24px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .product-card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .product-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .product-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .product-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .product-card:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .product-card:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+
+        .product-card:nth-child(7) {
+            animation-delay: 0.6s;
+        }
+
+        .product-card:nth-child(8) {
+            animation-delay: 0.7s;
+        }
+
+        .product-card:nth-child(9) {
+            animation-delay: 0.8s;
+        }
+    </style>
+    <link rel="stylesheet" href="modern.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/logo.jpg" alt="Логотип ООО МИХЕЕВ">
+                <div>
+                    <h1>ООО "МИХЕЕВ"</h1>
+                    <p>Рыбная продукция оптом</p>
+                </div>
+            </div>
+            <div class="header-contact">
+                <p>Телефон: <a href="tel:+74951542257">(495) 154-22-57</a></p>
+                <p>Email: <a href="mailto:miheev@miheev.ru">miheev@miheev.ru</a></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="modern_index.html" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a href="modern_about.html" class="nav-link">О компании</a>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link active">Продукция ▾</a>
+                    <ul class="dropdown">
+                        <li><a href="modern_products_hot.html" class="dropdown-item">Рыба горячего копчения</a></li>
+                        <li><a href="#" class="dropdown-item">Рыба холодного копчения</a></li>
+                        <li><a href="#" class="dropdown-item">Слабосоленая рыба</a></li>
+                        <li><a href="#" class="dropdown-item">Пиво к рыбе</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Прайс-лист ▾</a>
+                    <ul class="dropdown">
+                        <li><a href="#" class="dropdown-item">Горячее копчение</a></li>
+                        <li><a href="#" class="dropdown-item">Холодное копчение</a></li>
+                        <li><a href="#" class="dropdown-item">Слабосоленая</a></li>
+                        <li><a href="#" class="dropdown-item">Пивной набор</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Документы</a>
+                </li>
+                <li class="nav-item">
+                    <a href="modern_partners.html" class="nav-link">Партнерам</a>
+                </li>
+                <li class="nav-item">
+                    <a href="modern_contacts.html" class="nav-link">Контакты</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Category Hero Section -->
+    <section class="category-hero">
+        <h1>Рыба горячего копчения</h1>
+        <p>Высококачественная рыбная продукция горячего копчения от производителя</p>
+        <div class="breadcrumb">
+            <a href="modern_index.html">Главная</a> → <a href="#">Продукция</a> → Горячее копчение
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-title">Категории</div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="modern_about.html" class="sidebar-link">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                        О компании
+                    </a>
+                </li>
+                <li class="sidebar-item active">
+                    <a href="#" class="sidebar-link" onclick="toggleSubmenu(this)">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                        Продукция
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li class="sidebar-subitem"><a href="modern_products_hot.html" class="sidebar-sublink current">Горячее копчение</a></li>
+                        <li class="sidebar-subitem"><a href="#" class="sidebar-sublink">Холодное копчение</a></li>
+                        <li class="sidebar-subitem"><a href="#" class="sidebar-sublink">Слабосоленая</a></li>
+                        <li class="sidebar-subitem"><a href="#" class="sidebar-sublink">Пиво к рыбе</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="toggleSubmenu(this)">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        Прайс-лист
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li class="sidebar-subitem"><a href="#" class="sidebar-sublink">Горячее копчение</a></li>
+                        <li class="sidebar-subitem"><a href="#" class="sidebar-sublink">Холодное копчение</a></li>
+                        <li class="sidebar-subitem"><a href="#" class="sidebar-sublink">Слабосоленая</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        Документы
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="modern_partners.html" class="sidebar-link">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24">
+                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        </svg>
+                        Партнерам
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="modern_contacts.html" class="sidebar-link">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        Контакты
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content fade-in">
+            <div class="content-header">
+                <h2 class="content-title">Рыба горячего копчения</h2>
+                <p class="products-count">Количество позиций в категории: 9</p>
+            </div>
+
+            <div class="product-info-box">
+                <h3>О продукции горячего копчения</h3>
+                <p>Наша компания производит высококачественную рыбу горячего копчения из отборного сырья. Процесс копчения осуществляется с соблюдением всех технологических норм, что гарантирует превосходный вкус и аромат нашей продукции. Мы используем традиционные рецепты копчения в сочетании с современным оборудованием.</p>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid">
+                <!-- Product F_015 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/osetr_gk_lom_150_vu_S.jpg" alt="Осётр горячего копчения 150 г ломтик вакуум" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22120%22%3E%3Crect fill=%22%23ECECEC%22 width=%22180%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23999%22%3EОсётр ГК%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">
+                            <a href="#">Осётр горячего копчения 150 г ломтик вакуум</a>
+                        </h3>
+                        <a href="#" class="product-btn">Подробнее</a>
+                    </div>
+                </div>
+
+                <!-- Product F_021 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/Beluga_GK_150_S.jpg" alt="Белуга горячего копчения 150 г ломтик вакуум" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22120%22%3E%3Crect fill=%22%23ECECEC%22 width=%22180%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23999%22%3EБелуга ГК%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">
+                            <a href="#">Белуга горячего копчения 150 г ломтик вакуум</a>
+                        </h3>
+                        <a href="#" class="product-btn">Подробнее</a>
+                    </div>
+                </div>
+
+                <!-- Product F_022 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/sevruga_gk_lom_150_vu_S.jpg" alt="Севрюга горячего копчения 150 г ломтик вакуум" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22120%22%3E%3Crect fill=%22%23ECECEC%22 width=%22180%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23999%22%3EСеврюга ГК%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">
+                            <a href="#">Севрюга горячего копчения 150 г ломтик вакуум</a>
+                        </h3>
+                        <a href="#" class="product-btn">Подробнее</a>
+                    </div>
+                </div>
+
+                <!-- Product F_023 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/osetr_gk_file_vu_S.jpg" alt="Осётр горячего копчения филе вакуум" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22120%22%3E%3Crect fill=%22%23ECECEC%22 width=%22180%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23999%22%3EОсётр филе%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">
+                            <a href="#">Осётр горячего копчения филе вакуум</a>
+                        </h3>
+                        <a href="#" class="product-btn">Подробнее</a>
+                    </div>
+                </div>
+
+                <!-- Product F_024 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/sevruga_gk_file_vu_S.jpg" alt="Севрюга горячего копчения филе вакуум" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22120%22%3E%3Crect fill=%22%23ECECEC%22 width=%22180%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23999%22%3EСеврюга филе%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">
+                            <a href="#">Севрюга горячего копчения филе вакуум</a>
+                        </h3>
+                        <a href="#" class="product-btn">Подробнее</a>
+                    </div>
+                </div>
+
+                <!-- Product F_041 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/Beluga_GK_File_Kusok_bk_S.jpg" alt="Белуга горячего копчения кусок без кожи" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22120%22%3E%3Crect fill=%22%23ECECEC%22 width=%22180%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23999%22%3EБелуга кусок%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">
+                            <a href="#">Белуга горячего копчения кусок без кожи</a>
+                        </h3>
+                        <a href="#" class="product-btn">Подробнее</a>
+                    </div>
+                </div>
+
+                <!-- Product F_042 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/sevruga_gk_kusok_vu_S.jpg" alt="Севрюга горячего копчения кусок вакуум" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22120%22%3E%3Crect fill=%22%23ECECEC%22 width=%22180%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23999%22%3EСеврюга кусок%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">
+                            <a href="#">Севрюга горячего копчения кусок вакуум</a>
+                        </h3>
+                        <a href="#" class="product-btn">Подробнее</a>
+                    </div>
+                </div>
+
+                <!-- Product F_043 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/osetr_gk_kusok_vu_S.jpg" alt="Осётр горячего копчения кусок вакуум" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22120%22%3E%3Crect fill=%22%23ECECEC%22 width=%22180%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23999%22%3EОсётр кусок%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">
+                            <a href="#">Осётр горячего копчения кусок вакуум</a>
+                        </h3>
+                        <a href="#" class="product-btn">Подробнее</a>
+                    </div>
+                </div>
+
+                <!-- Product F_044 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/beluga_gk_tushka_S.jpg" alt="Белуга горячего копчения тушка" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22120%22%3E%3Crect fill=%22%23ECECEC%22 width=%22180%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23999%22%3EБелуга тушка%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">
+                            <a href="#">Белуга горячего копчения тушка</a>
+                        </h3>
+                        <a href="#" class="product-btn">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>ООО "МИХЕЕВ"</h3>
+                <p>&copy; 2004-2025 Все права защищены</p>
+                <p>Производство и оптовая продажа рыбной продукции</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p><strong>Адрес:</strong> Москва, 125438, ул. example, д. 1</p>
+                <p><strong>Телефон:</strong> (495) 154-22-57, 783-5777</p>
+                <p><strong>Email:</strong> <a href="mailto:miheev@miheev.ru">miheev@miheev.ru</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <p><a href="modern_about.html">О компании</a></p>
+                <p><a href="modern_products_hot.html">Продукция</a></p>
+                <p><a href="#">Прайс-лист</a></p>
+                <p><a href="#">Документы</a></p>
+                <p><a href="modern_contacts.html">Контакты</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Современная версия сайта ООО "МИХЕЕВ" | <a href="#">Карта сайта</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Sidebar submenu toggle
+        function toggleSubmenu(element) {
+            const parentItem = element.parentElement;
+            parentItem.classList.toggle('active');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.content, .sidebar').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
